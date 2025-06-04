@@ -1,5 +1,14 @@
 # Data to Science
-Data to Science (D2S) is a open-source web platform for visualizing and sharing of drone imagery which was developed by Ben Hancock and Jinha Jung at Purdue University. The website code repository is [here](https://github.com/gdslab/data-to-science) A production instance is hosted at Purdue University [https://ps2.d2s.org/](https://ps2.d2s.org/). 
+Data to Science (D2S) is a open-source web platform for visualizing and sharing of drone imagery which was developed by Ben Hancock and Jinha Jung at Purdue University. A production instance is hosted at Purdue University [https://ps2.d2s.org/](https://ps2.d2s.org/). 
+
+## D2S Instance on Cyverse
+
+Cyverse Tombstone VM https://tombstone-cloud.cyverse.org/; medium2 VM with 4 VCPUs, 16 gb ram, 
+
+ssh ubuntu@128.196.65.95
+
+
+
 
 
 ## Software Architecture
