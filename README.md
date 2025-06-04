@@ -6,6 +6,8 @@ Data to Science (D2S) is a open-source web platform for visualizing and sharing 
 Cyverse Tombstone VM https://tombstone-cloud.cyverse.org/; medium2 VM with 4 VCPUs, 16 gb ram, 
 
 ssh ubuntu@128.196.65.95
+git clone https://github.com/gdslab/data-to-science
+
 
 
 
@@ -13,21 +15,21 @@ ssh ubuntu@128.196.65.95
 
 ## Software Architecture
 
-The website code repository is [here](https://github.com/gdslab/data-to-science) D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
+The website code repository is [https://github.com/gdslab/data-to-science](https://github.com/gdslab/data-to-science) D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
 
-* redis
-* titiler
+* **redis**
+* **titiler**
 * **db** - postgis which is a spatial extension of postgresql database
-* flower
+* **flower**
 * **backend** - ubuntu, python, conda, untwine(software to convert point clouds to _copc.laz_
 * **pgadmin** - pgAdmin 4 is a web based administration tool for the PostgreSQL database
 * **frontend** - bullseye_slim (minimalist debian linux); react
-* celery_beat
-* celery_worker
-* proxy
-* tusd
-* pg_tileserv
-* varnish
+* **celery_beat**
+* **celery_worker**
+* **proxy** - nginx reverse proxy web server
+* **tusd** - 
+* **pg_tileserv**
+* **varnish**
 * 
 
 
