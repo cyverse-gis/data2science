@@ -29,8 +29,8 @@ The website git repository is at `/home/ubuntu/data-to-science` which is synced 
 ## Deployment Instructions
 Instructions for launching the website on a linux machine is in the readme of this repo https://github.com/gdslab/data-to-science. 
 
-### Nginx
-Once the containers have been built and launched (`docker compose up -d`), the host machine needs nginx installed natively to act as web server and reverse proxy. This is needed so internet traffic that goes to d2s.cyverse.org will get to the web app. 
+### Nginx and Traffic Encryption
+Once the containers have been built and launched (`docker compose up -d`), the host machine needs nginx installed natively to act as web server and reverse proxy. This is needed so internet traffic that goes to d2s.cyverse.org will get to the web app. A reverse proxy acts as gatekeeper or middleman to handle web requests. A request will come into to port 80 (default http port) or 443 (encrypted port). Nginx listens to these ports for requests and then sends the request on to localhost:8000 to meet the request.
 
 Install `nginx`
 
@@ -87,7 +87,33 @@ Is nginx listening on port 80 (standard http port)?
 
 `sudo lsof -i :80`
 
+### Traffic Encryption
+
+Secure Sockets Layer (SSL) Certificate is a file that encrypts data transfer between a browser and a server. This is what makes `http` into `https`. 
+
+We are using [Let's Encrypt](https://letsencrypt.org/) to secure our address. 
+
+```
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d d2s.cyverse.org
+```
+
+* Edits your Nginx config to include SSL settings
+
+* Gets and installs the certificate
+
+* Enables HTTPS
+
+* The certificate expires after 90 days, but is automatically renewed via systemd or cron
+
+  * The certificate and private key (in /etc/letsencrypt/live/d2s.cyverse.org/)
+
+  * A renewal config file (/etc/letsencrypt/renewal/d2s.cyverse.org.conf)
+
 <br/>
+
+
+
 
 ### Software Architecture
 D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
