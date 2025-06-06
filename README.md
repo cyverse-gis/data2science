@@ -9,7 +9,7 @@ The Cyverse instance of D2S is hosted on a Tombstone VM https://tombstone-cloud.
 
 Login to server `ssh ubuntu@128.196.65.95`. You need to have public ssh keys on the host VM. 
 
-Uses VsCode, you can add this to the .ssh config file to one-click your way on to the VM
+If using VsCode, you can add this to the .ssh config file to one-click your way on to the VM
 
 ```
 Host d2s
