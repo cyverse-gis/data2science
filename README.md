@@ -29,6 +29,39 @@ The website git repository is at `/home/ubuntu/data-to-science` which is synced 
 ## Deployment Instructions
 Instructions for launching the website on a linux machine is in the readme of this repo https://github.com/gdslab/data-to-science. 
 
+Once the containers have been built and launched (`docker compose up -d`), the host machine needs nginx installed natively to act as web server and reverse proxy. This is needed so internet traffic that goes to d2s.cyverse.org will get to the web app. 
+
+The following nginx config file (d2s.cyverse.org) should be place in `/etc/nginx/sites-available` on the host machine:
+
+```
+server {
+        server_name d2s.cyverse.org;
+
+        access_log /var/log/nginx/d2s.cyverse.org-access.log;
+        error_log  /var/log/nginx/d2s.cyverse.org-error.log;
+
+        client_max_body_size 0;
+        client_body_timeout 300s;
+        keepalive_timeout 600s;
+
+        proxy_http_version 1.1;
+        proxy_request_buffering off;
+
+        location / {
+                proxy_pass http://localhost:8000;
+
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+        }
+}
+```
+
+Then on the CLI, create a symbolic link at `/etc/nginx/sites-enabled`
+
+`sudo ln -s /etc/nginx/sites-available/d2s.cyverse.org /etc/nginx/sites-enabled/`
+
 
 ### Software Architecture
 D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
