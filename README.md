@@ -9,7 +9,7 @@ The Cyverse instance of D2S is hosted on a Tombstone VM https://tombstone-cloud.
 
 Login to server `ssh ubuntu@128.196.65.95`. You need to have public ssh keys on the host VM. 
 
-Uses VsCode, you can add this to the .ssh config file to one-click your way on the VM
+Uses VsCode, you can add this to the .ssh config file to one-click your way on to the VM
 
 ```
 Host d2s
@@ -29,9 +29,18 @@ The website git repository is at `/home/ubuntu/data-to-science` which is synced 
 ## Deployment Instructions
 Instructions for launching the website on a linux machine is in the readme of this repo https://github.com/gdslab/data-to-science. 
 
+### Nginx
 Once the containers have been built and launched (`docker compose up -d`), the host machine needs nginx installed natively to act as web server and reverse proxy. This is needed so internet traffic that goes to d2s.cyverse.org will get to the web app. 
 
-The following nginx config file (d2s.cyverse.org) should be place in `/etc/nginx/sites-available` on the host machine:
+Install `nginx`
+
+```
+sudo apt install nginx
+```
+
+
+
+The following nginx config file (d2s.cyverse.org) should be placed in `/etc/nginx/sites-available` on the host machine:
 
 ```
 server {
@@ -62,6 +71,23 @@ Then on the CLI, create a symbolic link at `/etc/nginx/sites-enabled`
 
 `sudo ln -s /etc/nginx/sites-available/d2s.cyverse.org /etc/nginx/sites-enabled/`
 
+### Other Nginx commands
+
+Is nginx active and running?
+
+`sudo systemctl status nginx`
+
+Restart Nginx
+
+`sudo systemctl restart nginx`
+
+<br/>
+
+Is nginx listening on port 80 (standard http port)?
+
+`sudo lsof -i :80`
+
+<br/>
 
 ### Software Architecture
 D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
