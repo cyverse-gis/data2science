@@ -20,7 +20,7 @@ Host d2s
   ForwardX11 yes
 ```
 
-git clone https://github.com/gdslab/data-to-science
+The website git repository is at `/home/ubuntu/data-to-science` which is synced with https://github.com/gdslab/data-to-science
 
 
 
