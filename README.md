@@ -22,20 +22,22 @@ Host d2s
 
 The website git repository is at `/home/ubuntu/data-to-science` which is synced with https://github.com/gdslab/data-to-science
 
+<br/>
 
 
 
+## Deployment Instructions
+Instructions for launching the website on a linux machine is in the readme of this repo https://github.com/gdslab/data-to-science. 
 
 
-## Software Architecture
-
-The website code repository is [https://github.com/gdslab/data-to-science](https://github.com/gdslab/data-to-science) D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
+### Software Architecture
+D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
 
 * **redis**
 * **titiler**
 * **db** - postgis which is a spatial extension of postgresql database
 * **flower**
-* **backend** - ubuntu, python, conda, untwine(software to convert point clouds to _copc.laz_
+* **backend** - ubuntu, python, conda, untwine(software to convert point clouds to _copc.laz_)
 * **pgadmin** - pgAdmin 4 is a web based administration tool for the PostgreSQL database
 * **frontend** - bullseye_slim (minimalist debian linux); react
 * **celery_beat**
