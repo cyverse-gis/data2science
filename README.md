@@ -128,7 +128,7 @@ D2S platform is a completely containerized web app which makes it easy to deploy
 * **frontend** - bullseye_slim (minimalist debian linux); react
 * **celery_beat**
 * **celery_worker**
-* **proxy** - nginx reverse proxy web server
+* **proxy** - The web app has a two-tier proxy setup. We have nginx installed nativel on the server, and also within the container. External internet traffic comes into the server at port 80/443 which is handled by the native nginx. It passes the request onto the containerized nginx which then sends the requests to different parts of the website. 
 * **tusd** - 
 * **pg_tileserv**
 * **varnish**
