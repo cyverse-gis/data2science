@@ -112,6 +112,7 @@ sudo certbot --nginx -d d2s.cyverse.org
 
 <br/>
 
+<img src="/images/nginx_concept.png" width=450>
 
 
 
