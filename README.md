@@ -32,7 +32,7 @@ Instructions for launching the website on a linux machine is in the readme of th
 ### Nginx and Traffic Encryption
 The web app has a two-tier proxy setup. We need to have nginx installed natively on the server, and also within the container. External internet traffic comes into the server at port 80 (default https port) or 443 (encrypted port) which is handled by the native nginx. It passes the request onto the containerized nginx (localhost:8000) which then sends the requests to different parts of the website. 
 
-#### Conceptual Model of 
+#### Conceptual Model of Two-tier Proxy
 <img src="/images/nginx_concept.png" width=450>
 
 
@@ -132,7 +132,7 @@ D2S platform is a completely containerized web app which makes it easy to deploy
 * **db** - postgis which is a spatial extension of postgresql database
 * **flower**
 * **backend** - ubuntu, python, conda, untwine(software to convert point clouds to _copc.laz_)
-* **pgadmin** - pgAdmin 4 is a web based administration tool for the PostgreSQL database
+* **pgadmin** - pgAdmin 4 is a web based administration tool for the PostgreSQL database. It is exposed at port `localhost:5050`
 * **frontend** - bullseye_slim (minimalist debian linux); react
 * **celery_beat**
 * **celery_worker**
