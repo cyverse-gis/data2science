@@ -30,15 +30,18 @@ The website git repository is at `/home/ubuntu/data-to-science` which is synced 
 Instructions for launching the website on a linux machine is in the readme of this repo https://github.com/gdslab/data-to-science. 
 
 ### Nginx and Traffic Encryption
-Once the containers have been built and launched (`docker compose up -d`), the host machine needs nginx installed natively to act as web server and reverse proxy. This is needed so internet traffic that goes to d2s.cyverse.org will get to the web app. A reverse proxy acts as gatekeeper or middleman to handle web requests. A request will come into to port 80 (default http port) or 443 (encrypted port). Nginx listens to these ports for requests and then sends the request on to localhost:8000 to meet the request.
+The web app has a two-tier proxy setup. We need to have nginx installed natively on the server, and also within the container. External internet traffic comes into the server at port 80 (default https port) or 443 (encrypted port) which is handled by the native nginx. It passes the request onto the containerized nginx (localhost:8000) which then sends the requests to different parts of the website. 
 
-Install `nginx`
+#### Conceptual Model of 
+<img src="/images/nginx_concept.png" width=450>
+
+
+
+Install `nginx` natively
 
 ```
 sudo apt install nginx
 ```
-
-
 
 The following nginx config file (d2s.cyverse.org) should be placed in `/etc/nginx/sites-available` on the host machine:
 
@@ -70,6 +73,12 @@ server {
 Then on the CLI, create a symbolic link at `/etc/nginx/sites-enabled`
 
 `sudo ln -s /etc/nginx/sites-available/d2s.cyverse.org /etc/nginx/sites-enabled/`
+
+<br/>
+
+
+
+
 
 ### Other Nginx commands
 
@@ -112,7 +121,6 @@ sudo certbot --nginx -d d2s.cyverse.org
 
 <br/>
 
-<img src="/images/nginx_concept.png" width=450>
 
 
 
