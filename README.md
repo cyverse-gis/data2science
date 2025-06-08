@@ -128,6 +128,14 @@ sudo certbot --nginx -d d2s.cyverse.org
 D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
 
 * **redis**
+    * Caching - Stores frequently accessed data in memory so your website doesn't have to repeatedly query slower databases or regenerate the same
+      information
+    * Session storage - Keeps track of user login sessions and temporary user data
+    * Database - Can serve as a primary database for certain types of data that need very fast access
+    * Message queuing - Handles background tasks and communication between different parts of your application
+
+Why it's useful for websites:
+Redis dramatically speeds up your site by reducing the time needed to fetch common data. For example, instead of querying your main database every time someone visits a popular page, Redis can serve that page content instantly from memory.
 * **titiler**
 * **db** - postgis which is a spatial extension of postgresql database
 * **flower**
