@@ -5,7 +5,7 @@ Data to Science (D2S) is a open-source web platform for visualizing and sharing 
 
 ## D2S Instance on Cyverse
 
-The Cyverse instance of D2S is hosted on a Tombstone VM https://tombstone-cloud.cyverse.org/; medium2 VM with 4 VCPUs, 16 gb ram.  
+The Cyverse instance of D2S is hosted on a Tombstone VM https://tombstone-cloud.cyverse.org/; medium2 VM with 4 VCPUs, 16 gb ram. 100GB volume at /dev/vda 
 
 Login to server `ssh ubuntu@128.196.65.95`. You need to have public ssh keys on the host VM. 
 
