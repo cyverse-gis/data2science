@@ -134,14 +134,13 @@ D2S platform is a completely containerized web app which makes it easy to deploy
 
 <br/>
 <br/>
+
 * **redis** - Redis is serving as a message broker for Celery task queue system. It's the communication hub between your different Celery services.  
 * **celery_beat** - Scheduler that triggers periodic tasks
 * **celery_worker** - processes background tasks asynchronously
 * **flower** - a web-based monitoring tool for Celery that lets you see task status, worker health, etc. Access at `localhost:5555`
 
-Example flow:
-
-User uploads a large drone image. Backend says "I need this processed" and sends a message to Redis. Redis queues the message: {"task": "process_satellite_image", "file": "image.tif"}. A Celery worker picks up the message and processes the image. Results go back through Redis to your backend
+Example flow: User uploads a large drone image. Backend says "I need this processed" and sends a message to Redis. Redis queues the message: {"task": "process_satellite_image", "file": "image.tif"}. A Celery worker picks up the message and processes the image. Results go back through Redis to your backend
 
 <br/>
 
