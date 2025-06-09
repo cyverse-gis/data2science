@@ -149,9 +149,14 @@ Example flow: User uploads a large drone image. Backend says "I need this proces
 
 <br/>
 
-* **titiler**
-* **pg_tileserv**
+* **titiler** - dynamic tiler for raster data
+* **pg_tileserv** - pulls vector data (points, lines, polygons) from postgis database and serves vector map tiles in Mapbox Vector Tile (MVT) format
 * **varnish** - HTTP cache layer for better performance
+
+Vector tiles: PostGIS → pg_tileserv → Varnish (cache)
+Raster tiles: GeoTIFF files → titiler → Varnish (cache)
+
+<br/>
 
 * **proxy** - The web app has a two-tier proxy setup. We have nginx installed nativel on the server, and also within the container. External internet traffic comes into the server at port 80/443 which is handled by the native nginx. It passes the request onto the containerized nginx which then sends the requests to different parts of the website. 
 
