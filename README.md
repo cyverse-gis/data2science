@@ -154,6 +154,7 @@ Example flow: User uploads a large drone image. Backend says "I need this proces
 * **varnish** - HTTP cache layer for better performance
 
 Vector tiles: PostGIS → pg_tileserv → Varnish (cache)
+
 Raster tiles: GeoTIFF files → titiler → Varnish (cache)
 
 <br/>
