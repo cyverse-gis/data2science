@@ -127,29 +127,29 @@ sudo certbot --nginx -d d2s.cyverse.org
 ### Software Architecture
 D2S platform is a completely containerized web app which makes it easy to deploy with a relatively easy setup. The web app consists of 13 containers that are orchestrated using docker compose. These are known as 'services' within the `docker-compose.yml` file
 
-* **redis** - Redis dramatically speeds up your site by reducing the time needed to fetch common data. For example, instead of querying your main database every time someone visits a popular page, Redis can serve that page content instantly from memory.
-    * Caching - Stores frequently accessed data in memory so your website doesn't have to repeatedly query slower databases or regenerate the same
-      information
-    * Session storage - Keeps track of user login sessions and temporary user data
-    * Database - Can serve as a primary database for certain types of data that need very fast access
-    * Message queuing - Handles background tasks and communication between different parts of your application
+* **frontend** - bullseye_slim (minimalist debian linux); react
+* **backend** - ubuntu, python, conda, untwine(software to convert point clouds to _copc.laz_)
+* **db** - postgis which is a spatial extension of postgresql database
+* **pgadmin** - pgAdmin 4 is a web based administration tool for the PostgreSQL database. It is exposed at port `localhost:5050`
 
 
+* **redis** - Redis is serving as a message broker for Celery task queue system. It's the communication hub between your different Celery services.  
+* **celery_beat** - Scheduler that triggers periodic tasks
+* **celery_worker** - processes background tasks asynchronously
+* **flower** - a web-based monitoring tool for Celery that lets you see task status, worker health, etc
+
+Example flow:
+
+User uploads a large drone image. Backend says "I need this processed" and sends a message to Redis. Redis queues the message: {"task": "process_satellite_image", "file": "image.tif"}. A Celery worker picks up the message and processes the image. Results go back through Redis to your backend
+
+
+* **tusd** - tus is a protocol based on HTTP for resumable file uploads. Resumable means that an upload can be interrupted at any moment and can be resumed without re-uploading the previous data again. An interruption may happen willingly, if the user wants to pause, or by accident in case of an network issue or server outage.
 
 * **titiler**
-* **db** - postgis which is a spatial extension of postgresql database
-* **flower**
-* **backend** - ubuntu, python, conda, untwine(software to convert point clouds to _copc.laz_)
-* **pgadmin** - pgAdmin 4 is a web based administration tool for the PostgreSQL database. It is exposed at port `localhost:5050`
-* **frontend** - bullseye_slim (minimalist debian linux); react
-* **celery_beat**
-* **celery_worker**
-* **proxy** - The web app has a two-tier proxy setup. We have nginx installed nativel on the server, and also within the container. External internet traffic comes into the server at port 80/443 which is handled by the native nginx. It passes the request onto the containerized nginx which then sends the requests to different parts of the website. 
-* **tusd** - 
 * **pg_tileserv**
-* **varnish**
-* 
+* **varnish** - HTTP cache layer for better performance
 
+* **proxy** - The web app has a two-tier proxy setup. We have nginx installed nativel on the server, and also within the container. External internet traffic comes into the server at port 80/443 which is handled by the native nginx. It passes the request onto the containerized nginx which then sends the requests to different parts of the website. 
 
 
 <br/>
