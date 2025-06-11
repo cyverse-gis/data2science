@@ -130,7 +130,7 @@ D2S platform is a completely containerized web app which makes it easy to deploy
 * **frontend** - bullseye_slim (minimalist debian linux); react
 * **backend** - ubuntu, python, conda, untwine(software to convert point clouds to _copc.laz_)
 * **db** - postgis which is a spatial extension of postgresql database
-* **pgadmin** - pgAdmin 4 is a web based administration tool for the PostgreSQL database. It is exposed at port `localhost:5050`
+* **pgadmin** - pgAdmin 4 is a web based administration tool for the PostgreSQL database. It is exposed at port `localhost:5050`. Login using the credentials specified in the _pgadmin_  service in the docker-compose.yml. To connect to the d2s database, use the credentials in the _db.env_ file (host=db, user=d2s, password=password)
 
 <br/>
 <br/>
