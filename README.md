@@ -34,6 +34,7 @@ The web app has a two-tier proxy setup. We need to have nginx installed natively
 
 #### Conceptual Model of Two-tier Proxy
 The graphic below is correct except for 'port 8000'. It should be port 8004. 
+
 <img src="/images/nginx_concept.png" width=450>
 
 
