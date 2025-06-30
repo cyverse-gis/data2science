@@ -158,7 +158,7 @@ Example flow: User uploads a large drone image. Backend says "I need this proces
 <br/>
 
 * **tusd** - tus is a protocol based on HTTP for resumable file uploads. Resumable means that an upload can be interrupted at any moment and can be resumed without re-uploading the previous data again. An interruption may happen willingly, if the user wants to pause, or by accident in case of an network issue or server outage.
-  * TUSD_STORAGE - a bind mounted temporary storage for files that are in the process uploading. When uploaded, the files will go into _/home/ubuntu/data-to-science/tusd_storage_ . When finished processing, the data will disappear from this directory and be placed in the permanent storage directory at _/var/lib/docker/volumes/data-to-science-ben_user-data/_data_. You can change the location of this permanet storage. It is called USER_DATA_STORAGE and can be specified in the _.env_ file. 
+  * TUSD_STORAGE - a bind mounted temporary storage for files that are in the process uploading. When uploaded, the files will go into _/home/ubuntu/data-to-science/tusd_storage_ . When finished processing, the data will disappear from this directory and be placed in the permanent storage directory at */var/lib/docker/volumes/data-to-science-ben_user-data/_data*. You can change the location of this permanet storage. It is called USER_DATA_STORAGE and can be specified in the _.env_ file. 
 
 
 <br/>
