@@ -179,21 +179,3 @@ Raster tiles: GeoTIFF files → titiler → Varnish (cache)
 <br/>
 <br/>
 
-## Data2Science Python 
-
-D2S has a python library called [d2spy](https://py.d2s.org) that allows you to bring data stored in D2S directly into a python environment (e.g., jupyter notebook). This repo contains example juypter notebooks that use D2S as a starting point for a machine learning workflow.
-
-<br>
-
-### Run locally
-
-clone this repository
-`git clone https://github.com/jeffgillan/data_to_science.git`
-
-`cd data_to_science`
-
-Create a new conda environment and install the software necessary for the code to run (d2s.py)
-
-`conda env create --file lettuce_detecto.yml`
-
-`conda activate lettuce_detecto`
