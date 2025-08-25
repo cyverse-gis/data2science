@@ -18,7 +18,7 @@ user-data storage is located at `/storage/`
 
 
 
-
+`docker compose -f docker-compose.prod.yml up -d`
 
 
 <br/>
