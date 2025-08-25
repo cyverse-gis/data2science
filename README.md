@@ -9,6 +9,9 @@ The Cyverse instance of D2S is hosted on the thorn physical server `thorn.cyvers
 
 ssh -p 1657 <cyverse_user_name>@thorn.cyverse.org
 
+Logging into thorn requires your Cyverse username & password. It also requires you to be on the Bio5 VPN if accessing from off campus
+
+
 web app files are located in `/opt/data-to-science`
 
 user-data storage is located at `/storage/`
@@ -16,22 +19,7 @@ user-data storage is located at `/storage/`
 
 
 
-The Cyverse instance of D2S is hosted on a Tombstone VM https://tombstone-cloud.cyverse.org/; medium2 VM with 4 VCPUs, 16 gb ram. 100GB volume at /dev/vda 
 
-Login to server `ssh ubuntu@128.196.65.95`. You need to have public ssh keys on the host VM. 
-
-If using VsCode, you can add this to the .ssh config file to one-click your way on to the VM
-
-```
-Host d2s
-  HostName 128.196.65.95
-  User ubuntu
-  IdentityFile ~/.ssh/id_rsa
-  ServerAliveInterval 120
-  ForwardX11 yes
-```
-
-The website git repository is at `/home/ubuntu/data-to-science` which is synced with https://github.com/gdslab/data-to-science
 
 <br/>
 
