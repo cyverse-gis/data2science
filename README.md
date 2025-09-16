@@ -44,7 +44,8 @@ There is a symbolic link at `/etc/nginx/sites-enabled`
 
 Secure Sockets Layer (SSL) Certificate is a file that encrypts data transfer between a browser and a server. This is what makes `http` into `https`. In the nginx config file (`/etc/nginx/sites-available/d2s.cyverse.org`), you need to specify the certitication file `/etc/pki/tls/certs/cyverse.pem` and the cyverse.key `/etc/pki/tls/private/cyverse.key`
 
-The ssl certificates were issued through Go Daddy and done by Cyverse DevOps guy Andy Edmonds. 
+The ssl certificates were issued through Go Daddy and done by Cyverse DevOps guy Andy Edmonds. Cyverse cert will expire Nov. 19 2025. New certs will be required to be pasted on thorn server. 
+
 
 
 
