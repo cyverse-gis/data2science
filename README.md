@@ -14,13 +14,18 @@ Logging into thorn requires your Cyverse username & password. It also requires y
 
 web app files are located in `/opt/data-to-science`
 
-user-data storage is located at `/storage/`
-
-
 The web app consists of a series of docker containers controlled by docker compose
 
 Deploy docker compose
 `docker compose -f docker-compose.prod.yml up -d`
+
+
+user-data storage is located at `/storage/` 73TB total storage
+
+get total storage used and available `df -h .`
+
+
+
 
 
 <br/>
