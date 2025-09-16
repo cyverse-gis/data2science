@@ -17,7 +17,9 @@ web app files are located in `/opt/data-to-science`
 user-data storage is located at `/storage/`
 
 
+The web app consists of a series of docker containers controlled by docker compose
 
+Deploy docker compose
 `docker compose -f docker-compose.prod.yml up -d`
 
 
@@ -29,51 +31,23 @@ user-data storage is located at `/storage/`
 Instructions for launching the website on a linux machine is in the readme of this repo https://github.com/gdslab/data-to-science. 
 
 ### Nginx and Traffic Encryption
-The web app has a two-tier proxy setup. We need to have nginx installed natively on the server, and also within the container. External internet traffic comes into the server at port 80 (default https port) or 443 (encrypted port) which is handled by the native nginx. It passes the request onto the containerized nginx (localhost:8004) which then sends the requests to different parts of the website. 
-
-#### Conceptual Model of Two-tier Proxy
-The graphic below is correct except for 'port 8000'. It should be port 8004. 
-
-<img src="/images/nginx_concept.png" width=450>
+The web app has a two-tier proxy setup. We have nginx installed natively on the server (/etc/nginx), and also within the container. External internet traffic comes into the server at port 80 (default https port) or 443 (encrypted port) which is handled by the native nginx. It passes the request onto the containerized nginx (localhost:8004) which then sends the requests to different parts of the website. 
 
 
+The nginx config file for d2s.cyverse.org is located in `/etc/nginx/sites-available/d2s.cyverse.org` on the host machine. 
 
-Install `nginx` natively
-
-```
-sudo apt install nginx
-```
-
-The following nginx config file (d2s.cyverse.org) should be placed in `/etc/nginx/sites-available` on the host machine:
-
-```
-server {
-        server_name d2s.cyverse.org;
-
-        access_log /var/log/nginx/d2s.cyverse.org-access.log;
-        error_log  /var/log/nginx/d2s.cyverse.org-error.log;
-
-        client_max_body_size 0;
-        client_body_timeout 300s;
-        keepalive_timeout 600s;
-
-        proxy_http_version 1.1;
-        proxy_request_buffering off;
-
-        location / {
-                proxy_pass http://localhost:8000;
-
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
-        }
-}
-```
-
-Then on the CLI, create a symbolic link at `/etc/nginx/sites-enabled`
+There is a symbolic link at `/etc/nginx/sites-enabled`
 
 `sudo ln -s /etc/nginx/sites-available/d2s.cyverse.org /etc/nginx/sites-enabled/`
+
+### Traffic Encryption
+
+Secure Sockets Layer (SSL) Certificate is a file that encrypts data transfer between a browser and a server. This is what makes `http` into `https`. In the nginx config file (`/etc/nginx/sites-available/d2s.cyverse.org`), you need to specify the certitication file `/etc/pki/tls/certs/cyverse.pem` and the cyverse.key `/etc/pki/tls/private/cyverse.key`
+
+The ssl certificates were issued through Go Daddy and done by Cyverse DevOps guy Andy Edmonds. 
+
+
+
 
 <br/>
 
@@ -94,9 +68,6 @@ Is nginx listening on port 80 (standard http port)?
 
 `sudo lsof -i :80`
 
-### Traffic Encryption
-
-Secure Sockets Layer (SSL) Certificate is a file that encrypts data transfer between a browser and a server. This is what makes `http` into `https`. 
 
 We are using [Let's Encrypt](https://letsencrypt.org/) to secure our address. 
 
