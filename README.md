@@ -52,7 +52,7 @@ The ssl certificates were issued through Go Daddy and done by Cyverse DevOps guy
 <br/>
 
 
-### Other Nginx commands
+### Nginx commands
 
 Is nginx active and running?
 
@@ -69,24 +69,6 @@ Is nginx listening on port 80 (standard http port)?
 `sudo lsof -i :80`
 
 
-We are using [Let's Encrypt](https://letsencrypt.org/) to secure our address. 
-
-```
-sudo apt install certbot python3-certbot-nginx
-sudo certbot --nginx -d d2s.cyverse.org
-```
-
-* Edits your Nginx config to include SSL settings
-
-* Gets and installs the certificate
-
-* Enables HTTPS
-
-* The certificate expires after 90 days, but is automatically renewed via systemd or cron
-
-  * The certificate and private key (in /etc/letsencrypt/live/d2s.cyverse.org/)
-
-  * A renewal config file (/etc/letsencrypt/renewal/d2s.cyverse.org.conf)
 
 <br/>
 
