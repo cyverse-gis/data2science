@@ -24,12 +24,9 @@ user-data storage is located at `/storage/` 73TB total storage
 
 get total storage used and available `df -h .`
 
-
-
-
-
 <br/>
 
+If the thorn server is rebooted, nginx and docker compose will automatically restart. The docker compose auto restart is controlled at `/lib/systemd/system/data_to_science_website.service`
 
 
 ## Deployment Instructions
