@@ -171,3 +171,8 @@ uaz-d2s-backup:uaz-d2s-backup/
     └── sync_manifest.json              # Metadata about the last sync
                                         # Gets updated each run
 ```
+
+A cronjob is set to run the backup script every night at 2am. 
+
+To edit `crontab -e`
+
