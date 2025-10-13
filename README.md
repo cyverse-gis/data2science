@@ -134,3 +134,8 @@ Raster tiles: GeoTIFF files → titiler → Varnish (cache)
 <br/>
 <br/>
 
+## Data to Science Backup
+
+
+
+~/.config/rclone/rclone.conf
