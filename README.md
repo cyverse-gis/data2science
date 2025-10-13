@@ -143,3 +143,31 @@ Backup script is located on thorn at `/storage/backup_s3.sh`
 File transfer is done through Rclone. The rclone config file specifies the S3 endpoint and credentials. It is at `~/.config/rclone/rclone.conf`
 
 Command to read S3 bucket contents: `rclone lsd uaz-d2s-backup:uaz-d2s-backup/`
+
+
+```
+uaz-d2s-backup:uaz-d2s-backup/
+│
+├── database/
+│   ├── latest/
+│   │   └── database_dump.sql          # Always the most recent database dump
+│   │                                   # Gets replaced on each backup run
+│   │
+│   └── archive/
+│       ├── database_20251013_020000.sql   # Historical snapshots
+│       ├── database_20251013_080000.sql   # Timestamped copies
+│       ├── database_20251013_140000.sql   # For point-in-time recovery
+│       ├── database_20251013_200000.sql
+│       └── database_20251014_020000.sql
+│
+├── d2s_user_data/                         # Exact mirror of your /storage/d2s_user_data
+│   ├── a3f2b8c1-4d5e-6f7g-8h9i-0j1k2l3m4n5o.tif
+│   ├── b4g3c9d2-5e6f-7g8h-9i0j-1k2l3m4n5o6p.tif
+│   ├── c5h4d0e3-6f7g-8h9i-0j1k-2l3m4n5o6p7q.laz
+│   ├── d6i5e1f4-7g8h-9i0j-1k2l-3m4n5o6p7q8r.laz
+│   └── ...                             # All your imagery files with UUID names
+│
+└── manifests/
+    └── sync_manifest.json              # Metadata about the last sync
+                                        # Gets updated each run
+```
