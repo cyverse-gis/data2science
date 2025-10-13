@@ -136,6 +136,10 @@ Raster tiles: GeoTIFF files → titiler → Varnish (cache)
 
 ## Data to Science Backup
 
+D2S database and user imagery products are being backed up to [Open Storage Network S3 bucket](https://github.com/cyverse/open_storage_network)
 
+Backup script is located on thorn at `/storage/backup_s3.sh`
 
-~/.config/rclone/rclone.conf
+File transfer is done through Rclone. The rclone config file specifies the S3 endpoint and credentials. It is at `~/.config/rclone/rclone.conf`
+
+Command to read S3 bucket contents: `rclone lsd uaz-d2s-backup:uaz-d2s-backup/`
