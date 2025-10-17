@@ -8,11 +8,14 @@ Data to Science (D2S) is a open-source web platform for visualizing and sharing 
 
 D2S has a python library called [d2spy](https://py.d2s.org) that allows you to bring data stored in D2S directly into a python environment (e.g., jupyter notebook or python script). 
 
+d2spy enables you to programmatically: 
 
 * Sign in to your Data to Science instance
 * Access your projects, flights, and data products
 * Create new projects and flights
 * Upload data products to flights
+
+<br/>
 
 Install d2spy from PyPi by running:
 
