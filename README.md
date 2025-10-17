@@ -32,24 +32,26 @@ This repo contains an [example juypter notebook]() that uses D2S as a starting p
 <br/>
 <br/>
 
-clone this repository
+1. clone this repository
 `git clone https://github.com/cyverse-gis/data2science.git`
 
 <br/>
 
-`cd data2science`
+2. Navigate into the repo `cd data2science`
 
 <br/>
 
-Create a new conda environment and install the software necessary for the code to run (d2s.py)
-
-<br/>
+3. Create a new conda environment and install the software necessary for the code to run (d2s.py)
 
 `conda env create --file lettuce_detecto.yml`
 
 `conda activate lettuce_detecto`
 
 <br/>
+
+4. Start Jupyter Notebook in VSCode
+
+5. Choose the 
 <br/>
 
 ## QGIS Plugin
