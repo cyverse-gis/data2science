@@ -56,8 +56,14 @@ Create a new conda environment and install the software necessary for the code t
 
 D2S has a QGIS plugin called _D2S Browser_ 
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-## D2S Instance on Cyverse
+## D2S Hosting Information on Cyverse
 
 The Cyverse instance of D2S is hosted on the thorn physical server `thorn.cyverse.org`
 
