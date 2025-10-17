@@ -27,7 +27,7 @@ Install d2spy from PyPi by running:
 
 ### Example Python Code
 
-This repo contains an [example juypter notebook]() that uses D2S as a starting point for a machine learning workflow.
+This repo contains an [example juypter notebook](/lettuce_detecto.ipynb) that uses D2S as a starting point for a machine learning workflow.
 
 <br/>
 <br/>
@@ -49,9 +49,9 @@ This repo contains an [example juypter notebook]() that uses D2S as a starting p
 
 <br/>
 
-4. Start Jupyter Notebook in VSCode
+4. Start Jupyter Notebook in VSCode with the `lettuce_detecto.ipynb` notebook
 
-5. Choose the 
+5. Choose the `lettuce_detecto` kernel 
 <br/>
 
 ## QGIS Plugin
