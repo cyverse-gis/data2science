@@ -27,6 +27,12 @@ Install d2spy from PyPi by running:
 
 ### Example Python Code
 
+[This link](https://py.d2s.org/guides/) will take you to several examples of using d2spy python library for input | output | query of Data to Science imagery products. 
+
+<br>
+<br>
+
+### Machine Learning Workflow with D2S
 This repo contains an [example juypter notebook](/lettuce_detecto.ipynb) that uses D2S as a starting point for a machine learning workflow.
 
 <br/>
