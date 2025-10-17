@@ -27,14 +27,23 @@ Install d2spy from PyPi by running:
 
 ### Example Python Code
 
-This repo contains example juypter notebooks that use D2S as a starting point for a machine learning workflow.
+This repo contains an [example juypter notebook]() that uses D2S as a starting point for a machine learning workflow.
+
+<br/>
+<br/>
 
 clone this repository
 `git clone https://github.com/cyverse-gis/data2science.git`
 
+<br/>
+
 `cd data2science`
 
+<br/>
+
 Create a new conda environment and install the software necessary for the code to run (d2s.py)
+
+<br/>
 
 `conda env create --file lettuce_detecto.yml`
 
