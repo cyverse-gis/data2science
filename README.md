@@ -6,8 +6,45 @@ Data to Science (D2S) is a open-source web platform for visualizing and sharing 
 
 ## Data2Science Python 
 
-D2S has a python library called [d2spy](https://py.d2s.org) that allows you to bring data stored in D2S directly into a python environment (e.g., jupyter notebook or python script). This repo contains example juypter notebooks that use D2S as a starting point for a machine learning workflow.
+D2S has a python library called [d2spy](https://py.d2s.org) that allows you to bring data stored in D2S directly into a python environment (e.g., jupyter notebook or python script). 
 
+
+* Sign in to your Data to Science instance
+* Access your projects, flights, and data products
+* Create new projects and flights
+* Upload data products to flights
+
+Install d2spy from PyPi by running:
+
+
+`pip install d2spy`
+
+
+
+
+This repo contains example juypter notebooks that use D2S as a starting point for a machine learning workflow.
+
+<br>
+
+### Run locally
+
+clone this repository
+`git clone https://github.com/cyverse-gis/data2science.git`
+
+`cd data2science`
+
+Create a new conda environment and install the software necessary for the code to run (d2s.py)
+
+`conda env create --file lettuce_detecto.yml`
+
+`conda activate lettuce_detecto`
+
+<br/>
+<br/>
+
+## QGIS Plugin
+
+D2S has a QGIS plugin called _D2S Browser_ 
 
 
 ## D2S Instance on Cyverse
