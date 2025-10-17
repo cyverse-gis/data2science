@@ -22,14 +22,12 @@ Install d2spy from PyPi by running:
 
 `pip install d2spy`
 
-
-
-
-This repo contains example juypter notebooks that use D2S as a starting point for a machine learning workflow.
-
 <br>
 
-### Run locally
+
+### Example Python Code
+
+This repo contains example juypter notebooks that use D2S as a starting point for a machine learning workflow.
 
 clone this repository
 `git clone https://github.com/cyverse-gis/data2science.git`
